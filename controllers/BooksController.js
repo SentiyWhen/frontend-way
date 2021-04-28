@@ -8,7 +8,7 @@ class BooksController extends Controller {
     const booksModel = new BooksModel();
     const data = await booksModel.getData();
     ctx.body = await ctx.render('books/list', {
-      data
+      data: data.data
     })
   }
 }

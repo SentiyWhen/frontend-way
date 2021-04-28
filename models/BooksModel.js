@@ -1,12 +1,12 @@
-// import { get } from 'axios';
+import safeRequest from '../utils/safeRequest';
 
 class BooksModel {
   getData() {
-    // return get('http://localhost/basic/web/index.php?r=books');
-    return Promise.resolve([
-      {id:1, name:'a'},
-      {id:2, name:'b'},
-    ]);
+    return safeRequest.fetch('http://xxxxx');
+    // return Promise.resolve([
+    //   {id:1, name:'a'},
+    //   {id:2, name:'b'},
+    // ]);
   }
 }
 
