@@ -1,7 +1,7 @@
-const path = require('path');
+import { join } from 'path';
 let config = {
-  viewsDir: path.join(__dirname, '..', 'views'),
-  staticDir: path.join(__dirname, '..', 'assets'),
+  viewsDir: join(__dirname, '..', 'views'),
+  staticDir: join(__dirname, '..', 'assets'),
 } 
 
 if (process.env.NODE_ENV === 'development') {
@@ -20,4 +20,4 @@ if (process.env.NODE_ENV === 'production') {
   config = {...config, ...prodConfig}
 }
 
-module.exports = config;
+export default config;
