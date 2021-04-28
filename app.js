@@ -13,7 +13,7 @@ const app = new Koa();
 
 app.context.render = wrap(render({
   root: viewsDir,
-  cache: cache,
+  cache,
   varControls: ['[[', ']]'],
 }));
 configure({
@@ -23,7 +23,7 @@ configure({
 const logger = getLogger("globalError");
 
 app.use(serve(staticDir));
-app.use(historyApiFallback({ index: '/', whiteList: ['/api'] }));
+app.use(historyApiFallback({ index: '/', whiteList: ['/api','/books'] }));
 errorHandler.error(app,logger);
 initController(app);
 

@@ -1,13 +1,16 @@
 import Controller from './Controller';
 import BooksModel from "../models/BooksModel";
-class ApiController extends Controller {
+class BooksController extends Controller {
   constructor() {
     super()
   }
   async actionDataList(ctx) {
     const booksModel = new BooksModel();
-    ctx.body = await booksModel.getData();
+    const data = await booksModel.getData();
+    ctx.body = await ctx.render('books/list', {
+      data
+    })
   }
 }
 
-export default ApiController;
+export default BooksController;
