@@ -11,7 +11,8 @@ const app = new Koa();
 
 app.context.render = co.wrap(render({
   root: config.viewsDir,
-  cache: config.cache
+  cache: config.cache,
+  varControls: ['[[', ']]'],
 }));
 
 app.use(serve(config.staticDir));
