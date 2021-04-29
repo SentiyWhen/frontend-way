@@ -3,7 +3,9 @@ let config = {
   viewsDir: join(__dirname, '../../web', 'views'),
   staticDir: join(__dirname, '../../web', 'assets'),
 } 
-
+if (0) {
+  console.log('asdff');
+}
 if (process.env.NODE_ENV === 'development') {
   const devConfig = {
     port: 3000,
