@@ -25,7 +25,7 @@ files.forEach((url) => {
     // entrys[entryKey] = `./src/web/views/${pagesName}/${entryKey}.entry.js`;
     htmlPlugins.push(
       new HtmlWebpackPlugin({
-        filename: `../web/views/${pagesName}/pages/${actionName}.html`,
+        filename: `../views/${pagesName}/pages/${actionName}.html`,
         template: `./src/web/views/${pagesName}/pages/${actionName}.html`,
         chunks: ['runtime', entryKey],
         inject: false,
@@ -38,7 +38,7 @@ const baseConfig = {
   mode, 
   entry: entrys,
   output: {
-    path: join(__dirname, './dist/assets'),
+    path: join(__dirname, './dist/web/assets'),
     filename: '[name].bundle.js'
   },
   module: {
@@ -61,11 +61,11 @@ const baseConfig = {
       patterns: [
         { 
           from: join(__dirname, './src/web/views/layouts'), 
-          to: "../web/views/layouts" 
+          to: "../views/layouts" 
         },
         { 
           from: join(__dirname, './src/web/components'), 
-          to: "../web/components" 
+          to: "../components" 
         }
       ],
     }),
