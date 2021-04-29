@@ -4,13 +4,13 @@ const envConfig = require(`./build/webpack.${mode}.js`);
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const AfterHtmlPlugin = require('./build/AfterHtmlPlugin');
+
 const { merge } = require('webpack-merge');
 const { sync } = require('glob');
 const { join } = require('path');
 
 const files = sync('./src/web/views/**/*.entry.js');
-
-console.log('当前：', files);
 //1、判断打包环境
 //2、遍历所有的入口文件
 // html打包出来
@@ -28,12 +28,11 @@ files.forEach((url) => {
         filename: `../web/views/${pagesName}/pages/${actionName}.html`,
         template: `./src/web/views/${pagesName}/pages/${actionName}.html`,
         chunks: ['runtime', entryKey],
+        inject: false,
       })
     )
   }
 })
-
-console.log(entrys);
 
 const baseConfig = {
   mode, 
@@ -56,6 +55,7 @@ const baseConfig = {
   },
   plugins: [
     ...htmlPlugins,
+    new AfterHtmlPlugin(),
     new MiniCssExtractPlugin(),
     new CopyPlugin({
       patterns: [
