@@ -28,5 +28,5 @@ errorHandler.error(app,logger);
 initController(app);
 
 app.listen(port, () => {
-  console.log(`🚀启动 at http://localhost:${port}`);
+  console.log(`🚀server at http://localhost:${port}`);
 })
