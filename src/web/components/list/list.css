@@ -1,0 +1,11 @@
+:root {
+  --ydColor: yellowgreen;
+}
+.components-list {
+  & h3 {
+    color: var(--ydColor);
+  }
+  &:hover {
+    color: rebeccapurple;
+  }
+}

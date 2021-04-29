@@ -7,7 +7,7 @@ class BooksController extends Controller {
   async actionDataList(ctx) {
     const booksModel = new BooksModel();
     const data = await booksModel.getData();
-    ctx.body = await ctx.render('books/list', {
+    ctx.body = await ctx.render('books/pages/list', {
       data: data.data
     })
   }

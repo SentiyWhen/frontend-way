@@ -5,7 +5,7 @@ import serve from 'koa-static';
 import { configure, getLogger } from "log4js";
 import errorHandler from './middlewares/errorHandler';
 import { historyApiFallback } from 'koa2-connect-history-api-fallback';
-import config from './src/server/config';
+import config from './config';
 const { viewsDir, cache, staticDir, port } = config;
 import initController from './controllers';
 

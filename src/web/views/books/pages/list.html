@@ -1,0 +1,18 @@
+{% extends '../../layouts/index.html' %} 
+
+{% block title %} 图书列表页📚 {%endblock%} 
+{% block head %}
+<!--injectcss-->
+{% endblock %} 
+{% block content %} 
+   <ul>
+     {% for item in data -%}
+     <li>[[item.id]] [[item.name]]</li>
+     {%- endfor %}
+   </ul>
+{% endblock %} 
+
+{% block scripts %}
+<!--injectjs-->
+{% endblock %}
+
