@@ -1,7 +1,6 @@
 const { argv } = require('yargs');
 const mode = argv.mode || 'development';
 const envConfig = require(`./build/webpack.${mode}.js`);
-const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const AfterHtmlPlugin = require('./build/AfterHtmlPlugin');
@@ -38,8 +37,7 @@ const baseConfig = {
   mode, 
   entry: entrys,
   output: {
-    path: join(__dirname, './dist/web/assets'),
-    filename: '[name].bundle.js'
+    path: join(__dirname, './dist/web/assets')
   },
   module: {
     rules: [
@@ -57,18 +55,6 @@ const baseConfig = {
     ...htmlPlugins,
     new AfterHtmlPlugin(),
     new MiniCssExtractPlugin(),
-    new CopyPlugin({
-      patterns: [
-        { 
-          from: join(__dirname, './src/web/views/layouts'), 
-          to: "../views/layouts" 
-        },
-        { 
-          from: join(__dirname, './src/web/components'), 
-          to: "../components" 
-        }
-      ],
-    }),
   ]
 }
 
