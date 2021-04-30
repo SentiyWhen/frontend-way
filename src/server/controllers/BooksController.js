@@ -9,7 +9,10 @@ class BooksController extends Controller {
     const data = await booksModel.getData();
     ctx.body = await ctx.render('books/pages/list', {
       data: data.data
-    })
+    });
+  }
+  async actionCreate(ctx) {
+    ctx.body = await ctx.render('books/pages/create');
   }
 }
 
