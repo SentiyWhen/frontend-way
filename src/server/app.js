@@ -4,7 +4,7 @@ import render from 'koa-swig';
 import serve from 'koa-static';
 import { configure, getLogger } from "log4js";
 import errorHandler from './middlewares/errorHandler';
-import { historyApiFallback } from 'koa2-connect-history-api-fallback';
+// import { historyApiFallback } from 'koa2-connect-history-api-fallback';
 import config from './config';
 const { viewsDir, cache, staticDir, port } = config;
 import initController from './controllers';
@@ -23,7 +23,7 @@ configure({
 const logger = getLogger("globalError");
 
 app.use(serve(staticDir));
-app.use(historyApiFallback({ index: '/', whiteList: ['/api','/books'] }));
+// app.use(historyApiFallback({ index: '/', whiteList: ['/api','/books'] }));
 errorHandler.error(app,logger);
 initController(app);
 
