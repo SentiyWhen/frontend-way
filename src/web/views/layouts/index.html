@@ -7,7 +7,14 @@
   </head>
   <body>
     {% include "../../components/banner/banner.html"%}
-    {% block content %}{% endblock %}
+    <div id="app">
+      {% block content %}{% endblock %}
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+    <script>
+      $(document).pjax('a', '#app');
+    </script>
     {% block scripts %}{% endblock %}
   </body>
 </html>

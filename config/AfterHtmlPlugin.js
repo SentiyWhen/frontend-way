@@ -27,7 +27,6 @@ class AfterHtmlPlugin {
           console.log(data.assets);
           this.jsArr = data.assets.js;
           this.cssArr = data.assets.css;
-          // data.html += 'The Magic Footer'
           cb(null, data)
         }
       )
@@ -35,8 +34,6 @@ class AfterHtmlPlugin {
       HtmlWebpackPlugin.getHooks(compilation).beforeEmit.tapAsync(
         pluginName,
         (data, cb) => {
-          // <!--injectjs--><!--injectcss-->
-          // data.html += 'The Magic Footer'
           let _html = data.html;
           const scriptString = createHtml('js',this.jsArr);
           const linkString = createHtml('css',this.cssArr);

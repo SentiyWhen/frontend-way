@@ -1,7 +1,7 @@
 import { join } from 'path';
 let config = {
-  viewsDir: join(__dirname, '../../web', 'views'),
-  staticDir: join(__dirname, '../../web', 'assets'),
+  viewsDir: join(__dirname, '../', 'views'),
+  staticDir: join(__dirname, '../', 'assets'),
 } 
 if (0) {
   console.log('asdff');

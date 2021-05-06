@@ -5,9 +5,12 @@ class IndexController extends Controller {
     super()
   }
   async actionIndex(ctx) {
-    ctx.body = await ctx.render('index', {
-      message: 'back data'
-    });
+    // ctx.body = await ctx.render('index', {
+    //   message: 'back data'
+    // });
+    ctx.body = {
+      message: 'main'
+    }
   }
 }
 

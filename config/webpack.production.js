@@ -6,7 +6,7 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
   output: {
-    filename: '[name].[contenthash].js',
+    filename: 'scripts/[name].[contenthash].js',
   },
   optimization: {
     minimizer: [new CssMinimizerPlugin()],
@@ -32,15 +32,15 @@ module.exports = {
             });
           }, 
         },
-        { 
-          from: join(__dirname, '../src/web/views/index.html'), 
-          to: "../views",
-          transform(content) {
-            return minify(content.toString('utf-8'), {
-              collapseWhitespace: true,
-            });
-          }, 
-        }
+        // { 
+        //   from: join(__dirname, '../src/web/views/index.html'), 
+        //   to: "../views",
+        //   transform(content) {
+        //     return minify(content.toString('utf-8'), {
+        //       collapseWhitespace: true,
+        //     });
+        //   }, 
+        // }
       ],
     }),
     new OptimizeCssAssetsPlugin({

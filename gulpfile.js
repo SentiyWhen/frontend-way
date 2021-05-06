@@ -16,7 +16,7 @@ function buildDev() {
           plugins: ["@babel/plugin-transform-modules-commonjs"]
         })
       )
-      .pipe(gulp.dest('dist/server'))
+      .pipe(gulp.dest('dist'))
 }
 
 function buildProd() {
@@ -32,7 +32,7 @@ function buildProd() {
         ],
       })
     )
-    .pipe(gulp.dest('dist/server'));
+    .pipe(gulp.dest('dist'));
 }
 
 //清理环境变量
@@ -52,7 +52,7 @@ function cleanConfig() {
         ],
       })
     )
-  .pipe(gulp.dest('dist/server'))
+  .pipe(gulp.dest('dist'))
 }
 
 let build = gulp.series(buildDev);

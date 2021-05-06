@@ -17,7 +17,7 @@ app.context.render = wrap(render({
   varControls: ['[[', ']]'],
 }));
 configure({
-  appenders: { globalError: { type: "file", filename: "./logs/error.log" } },
+  appenders: { globalError: { type: "file", filename: __dirname + "/logs/error.log" } },
   categories: { default: { appenders: ["globalError"], level: "error" } }
 });
 const logger = getLogger("globalError");

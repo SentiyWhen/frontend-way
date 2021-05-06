@@ -6,7 +6,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
   watch: true,
   output: {
-    filename: '[name].bundle.js',
+    filename: 'scripts/[name].bundle.js',
   },
   plugins: [
     new CopyPlugin({
@@ -19,10 +19,10 @@ module.exports = {
           from: join(__dirname, '../src/web/components'), 
           to: "../components" 
         },
-        { 
-          from: join(__dirname, '../src/web/views/index.html'), 
-          to: "../views" 
-        }
+        // { 
+        //   from: join(__dirname, '../src/web/views/index.html'), 
+        //   to: "../views" 
+        // }
       ],
     }),
     // new BundleAnalyzerPlugin(),

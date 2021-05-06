@@ -1,4 +1,4 @@
-import "./banner.css";
+// import "./banner.css";
 
 function Banner(){
   console.log('Banner init');
