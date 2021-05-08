@@ -1,13 +1,12 @@
-import Controller from './Controller';
+import { route, GET } from 'awilix-koa';
 
-class IndexController extends Controller {
-  constructor() {
-    super()
-  }
+@route('/')
+class IndexController {
+  constructor() {}
+  
+  @route('/')
+  @GET()
   async actionIndex(ctx) {
-    // ctx.body = await ctx.render('index', {
-    //   message: 'back data'
-    // });
     ctx.body = {
       message: 'main'
     }

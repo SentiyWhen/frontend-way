@@ -1,23 +1,24 @@
-import Controller from './Controller';
-import BooksModel from "../models/BooksModel";
+import { route, GET } from 'awilix-koa';
 import { Readable } from 'stream';
 import cheerio from 'cheerio';
 
-class BooksController extends Controller {
-  constructor() {
-    super()
+@route('/books')
+class BooksController {
+  constructor({booksService}) {
+    this.booksService = booksService;
   }
+
+  @route('/list')
+  @GET()
   async actionDataList(ctx) {
-    const booksModel = new BooksModel();
-    const data = await booksModel.getData();
-    // const html = await ctx.render('books/pages/list', {
-    //   data: data.data
-    // });
+    const data = await this.booksService.getData();
     ctx.body = await ctx.render('books/pages/list', {
-      data: data.data
+      data: data.data.rows[0].company_abbr
     });
-    
   }
+
+  @route('/create')
+  @GET()
   async actionCreate(ctx) {
     // ctx.body = await ctx.render('books/pages/create');
     const html = await ctx.render('books/pages/create');

@@ -1,12 +1,15 @@
-import Controller from './Controller';
-import BooksModel from "../models/BooksModel";
-class ApiController extends Controller {
-  constructor() {
-    super()
+import { route, GET } from 'awilix-koa';
+@route('/api')
+
+class ApiController{
+  constructor({booksService}) {
+    this.booksService = booksService;
   }
+
+  @route('/getList')
+  @GET()
   async actionDataList(ctx) {
-    const booksModel = new BooksModel();
-    ctx.body = await booksModel.getData();
+    ctx.body = await this.booksService.getData();
   }
 }
 
