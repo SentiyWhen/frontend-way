@@ -1,9 +1,4 @@
-import Banner from "../../components/banner/banner.js";
-class BooksList {
-  constructor() {
-    console.log('BooksList');
-  }
-}
-
-new BooksList();
-new Banner();
+import banner from '../../components/banner/banner.js';
+import list from '../../components/list/list.js';
+banner.init();
+list.init();

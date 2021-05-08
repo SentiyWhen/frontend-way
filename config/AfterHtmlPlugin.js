@@ -5,7 +5,7 @@ function createHtml(type, array) {
   let result = '';
   if (type === 'js') {
     array.forEach((url) => {
-      result += `<script src="${url}"></script>`
+      result += `<script class="lazyload-js" src="${url}"></script>`
     })
   }
   if (type === 'css') {
@@ -20,7 +20,7 @@ class AfterHtmlPlugin {
     // compiler(只有一个)  webpack编译对象
     // compilation（多个）  每一次构建
     compiler.hooks.compilation.tap(pluginName, (compilation) => {
-      console.log('The compiler is starting a new compilation...')
+      // console.log('The compiler is starting a new compilation...')
       HtmlWebpackPlugin.getHooks(compilation).beforeAssetTagGeneration.tapAsync(
         pluginName,
         (data, cb) => {
@@ -39,6 +39,8 @@ class AfterHtmlPlugin {
           const linkString = createHtml('css',this.cssArr);
           _html = _html.replace('<!--injectjs-->', scriptString);
           _html = _html.replace('<!--injectcss-->', linkString);
+          // _html = _html.replace(/@components/g, '../../../components');
+          // _html = _html.replace(/@layouts/g, '../../layouts');
           data.html = _html;
           cb(null, data)
         }

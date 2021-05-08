@@ -1,6 +1,6 @@
-// import "./banner.css";
-
-function Banner(){
-  console.log('Banner init');
-}
-export default Banner;
+const banner = {
+  init() {
+    console.log('banner');
+  },
+};
+export default banner;

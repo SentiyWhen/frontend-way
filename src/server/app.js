@@ -14,7 +14,9 @@ const app = new Koa();
 app.context.render = wrap(render({
   root: viewsDir,
   cache,
+  ext: 'html',
   varControls: ['[[', ']]'],
+  writeBody: false,
 }));
 configure({
   appenders: { globalError: { type: "file", filename: __dirname + "/logs/error.log" } },

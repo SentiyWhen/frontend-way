@@ -5,11 +5,7 @@
 <!--injectcss-->
 {% endblock %} 
 {% block content %} 
-   <ul>
-     {% for item in data -%}
-     <li>[[item.id]] [[item.name]]</li>
-     {%- endfor %}
-   </ul>
+{% include '../../../components/list/list.html' %}
 {% endblock %} 
 
 {% block scripts %}
