@@ -1,12 +1,14 @@
-import safeRequest from '../utils/safeRequest';
+import request from '../utils/SafeRequest';
 
 class BooksModel {
   getData() {
-    return safeRequest.fetch('http://listxbrl.sse.com.cn/report/list.do');
-    // return Promise.resolve([
-    //   {id:1, name:'a'},
-    //   {id:2, name:'b'},
-    // ]);
+    return request.fetch('report/list.do');
+  }
+  getCompanyInfo(params) {
+    return request.fetch('companyInfo/showmap.do', {
+      method: 'post',
+      params,
+    });
   }
 }
 

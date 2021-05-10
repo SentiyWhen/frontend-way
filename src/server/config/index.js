@@ -2,10 +2,8 @@ import { join } from 'path';
 let config = {
   viewsDir: join(__dirname, '../', 'views'),
   staticDir: join(__dirname, '../', 'assets'),
+  baseUrl: 'http://listxbrl.sse.com.cn/'
 } 
-if (0) {
-  console.log('asdff');
-}
 if (process.env.NODE_ENV === 'development') {
   const devConfig = {
     port: 3000,
